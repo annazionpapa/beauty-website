@@ -37,95 +37,124 @@ export default function DoctorsPage() {
           {doctors.map((doctor, i) => (
             <div
               key={doctor.id}
-              className={`grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start py-16 ${
+              className={`py-16 ${
                 i < doctors.length - 1 ? "border-b border-gray-100" : ""
               }`}
             >
-              {/* Photo - 2/5 width */}
-              <ScrollAnimation
-                type={i % 2 === 0 ? "left" : "right"}
-                className={`lg:col-span-2 ${i % 2 === 1 ? "lg:order-2" : ""}`}
-              >
-                <div className="relative aspect-[3/4] rounded-3xl overflow-hidden max-w-sm mx-auto lg:max-w-none">
-                  <div
-                    className="absolute inset-0"
-                    style={doctor.imageScale ? { transform: `scale(${doctor.imageScale})`, transformOrigin: 'top center' } : undefined}
-                  >
-                    <Image
-                      src={doctor.image}
-                      alt={doctor.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 80vw, 35vw"
-                    />
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+                {/* Photo - 2/5 width */}
+                <ScrollAnimation
+                  type={i % 2 === 0 ? "left" : "right"}
+                  className={`lg:col-span-2 ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                >
+                  <div className="relative aspect-[3/4] rounded-3xl overflow-hidden max-w-sm mx-auto lg:max-w-none">
+                    <div
+                      className="absolute inset-0"
+                      style={doctor.imageScale ? { transform: `scale(${doctor.imageScale})`, transformOrigin: 'top center' } : undefined}
+                    >
+                      <Image
+                        src={doctor.image}
+                        alt={doctor.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 80vw, 35vw"
+                      />
+                    </div>
                   </div>
-                </div>
-              </ScrollAnimation>
+                </ScrollAnimation>
 
-              {/* Info - 3/5 width */}
-              <ScrollAnimation
-                type={i % 2 === 0 ? "right" : "left"}
-                className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-1" : ""}`}
-              >
-                <div className="lg:py-8">
-                  <span className="text-xs text-plum tracking-wider uppercase font-medium">
-                    {doctor.specialty}
-                  </span>
-                  <h2 className="text-3xl font-semibold text-espresso mt-2">
-                    {doctor.name}
-                    <span className="text-lg font-normal text-gray-400 ml-3">
-                      {doctor.title}
+                {/* Info - 3/5 width */}
+                <ScrollAnimation
+                  type={i % 2 === 0 ? "right" : "left"}
+                  className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-1" : ""}`}
+                >
+                  <div className="lg:py-8">
+                    <span className="text-xs text-plum tracking-wider uppercase font-medium">
+                      {doctor.specialty}
                     </span>
-                  </h2>
+                    <h2 className="text-3xl font-semibold text-espresso mt-2">
+                      {doctor.name}
+                      <span className="text-lg font-normal text-gray-400 ml-3">
+                        {doctor.title}
+                      </span>
+                    </h2>
 
-                  {/* Quote */}
-                  <blockquote className="mt-6 pl-4 border-l-2 border-plum/30">
-                    <p className="italic text-lg text-espresso-muted leading-relaxed">
-                      &ldquo;{doctor.greeting}&rdquo;
-                    </p>
-                  </blockquote>
+                    {/* Quote */}
+                    <blockquote className="mt-6 pl-4 border-l-2 border-plum/30">
+                      <p className="italic text-lg text-espresso-muted leading-relaxed">
+                        &ldquo;{doctor.greeting}&rdquo;
+                      </p>
+                    </blockquote>
 
-                  {/* Education & Career */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
-                    <div>
-                      <h3 className="text-sm font-semibold text-espresso mb-3">
-                        학력
-                      </h3>
-                      <ul className="space-y-1.5">
-                        {doctor.education.map((edu) => (
-                          <li key={edu} className="text-sm text-espresso-muted">
-                            {edu}
-                          </li>
-                        ))}
-                      </ul>
+                    {/* Education & Career */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+                      <div>
+                        <h3 className="text-sm font-semibold text-espresso mb-3">
+                          학력
+                        </h3>
+                        <ul className="space-y-1.5">
+                          {doctor.education.map((edu) => (
+                            <li key={edu} className="text-sm text-espresso-muted">
+                              {edu}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-espresso mb-3">
+                          경력
+                        </h3>
+                        <ul className="space-y-1.5">
+                          {doctor.career.map((c) => (
+                            <li key={c} className="text-sm text-espresso-muted">
+                              {c}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-espresso mb-3">
-                        경력
-                      </h3>
-                      <ul className="space-y-1.5">
-                        {doctor.career.map((c) => (
-                          <li key={c} className="text-sm text-espresso-muted">
-                            {c}
-                          </li>
-                        ))}
-                      </ul>
+
+                    {/* Certifications as tags */}
+                    <div className="flex flex-wrap gap-2 mt-8">
+                      {doctor.certifications.map((cert) => (
+                        <span
+                          key={cert}
+                          className="px-3 py-1.5 bg-plum/8 text-plum text-xs rounded-full"
+                        >
+                          {cert}
+                        </span>
+                      ))}
                     </div>
                   </div>
+                </ScrollAnimation>
+              </div>
 
-                  {/* Certifications as tags */}
-                  <div className="flex flex-wrap gap-2 mt-8">
-                    {doctor.certifications.map((cert) => (
-                      <span
-                        key={cert}
-                        className="px-3 py-1.5 bg-plum/8 text-plum text-xs rounded-full"
+              {/* Activity Photos Grid */}
+              {doctor.activityImages && doctor.activityImages.length > 0 && (
+                <ScrollAnimation type="scale" className="mt-10">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+                    {doctor.activityImages.map((activity, j) => (
+                      <div
+                        key={activity.src}
+                        className="group relative aspect-[4/3] rounded-xl overflow-hidden"
                       >
-                        {cert}
-                      </span>
+                        <Image
+                          src={activity.src}
+                          alt={`${doctor.name} ${activity.label}`}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-espresso/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                          <span className="text-white text-xs font-medium">
+                            {activity.label}
+                          </span>
+                        </div>
+                      </div>
                     ))}
                   </div>
-                </div>
-              </ScrollAnimation>
+                </ScrollAnimation>
+              )}
             </div>
           ))}
         </div>

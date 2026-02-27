@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 const treatmentOptions = [
   "리프팅 (울쎄라, 써마지 등)",
@@ -12,7 +13,17 @@ const treatmentOptions = [
   "기타 / 잘 모르겠어요",
 ];
 
+const treatmentParamMap: Record<string, string> = {
+  "리프팅": "리프팅 (울쎄라, 써마지 등)",
+  "레이저": "레이저 (피코, 프락셀 등)",
+  "보톡스 & 필러": "보톡스 & 필러",
+  "피부관리": "피부관리 (물광, PRP 등)",
+  "여드름 & 흉터": "여드름 & 흉터",
+  "색소 & 미백": "색소 & 미백",
+};
+
 export default function ContactForm() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -20,6 +31,16 @@ export default function ContactForm() {
     message: "",
     agree: false,
   });
+
+  useEffect(() => {
+    const treatmentParam = searchParams.get("treatment");
+    if (treatmentParam) {
+      const mapped = treatmentParamMap[treatmentParam];
+      if (mapped) {
+        setFormData((prev) => ({ ...prev, treatment: mapped }));
+      }
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

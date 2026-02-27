@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import ContactForm from "@/components/ContactForm";
 import type { Metadata } from "next";
@@ -42,7 +43,9 @@ export default function ContactPage() {
                 <p className="text-sm text-gray-400 mb-8">
                   아래 양식을 작성해 주시면 빠른 시간 내에 연락드리겠습니다.
                 </p>
-                <ContactForm />
+                <Suspense fallback={null}>
+                  <ContactForm />
+                </Suspense>
               </div>
             </ScrollAnimation>
 

@@ -1,3 +1,8 @@
+export interface DoctorActivity {
+  src: string;
+  label: string;
+}
+
 export interface Doctor {
   id: string;
   name: string;
@@ -6,6 +11,7 @@ export interface Doctor {
   specialty: string;
   image: string;
   imageScale?: number;
+  activityImages?: DoctorActivity[];
   education: string[];
   career: string[];
   certifications: string[];
@@ -21,6 +27,12 @@ export const doctors: Doctor[] = [
     specialty: "리프팅 · 레이저 전문",
     image: "/images/doctor-kim.jpg",
     imageScale: 1.15,
+    activityImages: [
+      { src: "/images/doctors/doctor-kim-consultation.jpg", label: "피부 분석 상담" },
+      { src: "/images/doctors/doctor-kim-treatment.jpg", label: "울쎄라 시술" },
+      { src: "/images/doctors/doctor-kim-conference.jpg", label: "학회 발표" },
+      { src: "/images/doctors/doctor-kim-portrait.jpg", label: "원장 프로필" },
+    ],
     education: [
       "서울대학교 의과대학 졸업",
       "서울대학교 의과대학 석사",
@@ -46,6 +58,12 @@ export const doctors: Doctor[] = [
     specialty: "보톡스 · 필러 전문",
     image: "/images/doctor-lee.jpg",
     imageScale: 1.15,
+    activityImages: [
+      { src: "/images/doctors/doctor-lee-consultation.jpg", label: "1:1 상담" },
+      { src: "/images/doctors/doctor-lee-treatment.jpg", label: "필러 시술" },
+      { src: "/images/doctors/doctor-lee-teaching.jpg", label: "후배 교육" },
+      { src: "/images/doctors/doctor-lee-office.jpg", label: "차트 검토" },
+    ],
     education: [
       "연세대학교 의과대학 졸업",
       "연세대학교 의과대학 박사",
@@ -70,6 +88,12 @@ export const doctors: Doctor[] = [
     title: "원장",
     specialty: "여드름 · 흉터 전문",
     image: "/images/doctor-park.jpg",
+    activityImages: [
+      { src: "/images/doctors/doctor-park-consultation.jpg", label: "피부 진단" },
+      { src: "/images/doctors/doctor-park-treatment.jpg", label: "PDT 치료" },
+      { src: "/images/doctors/doctor-park-lab.jpg", label: "조직 분석" },
+      { src: "/images/doctors/doctor-park-casual.jpg", label: "환자와 대화" },
+    ],
     education: [
       "고려대학교 의과대학 졸업",
       "고려대학교 의과대학 석사",

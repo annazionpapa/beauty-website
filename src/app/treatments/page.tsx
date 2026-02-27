@@ -31,7 +31,7 @@ export default function TreatmentsPage() {
         </div>
       </section>
 
-      {/* Treatments */}
+      {/* Treatments - Unified layout: image left, text right */}
       <section className="pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {treatments.map((treatment, i) => (
@@ -41,13 +41,9 @@ export default function TreatmentsPage() {
                 i < treatments.length - 1 ? "border-b border-gray-100" : ""
               }`}
             >
-              {/* Treatment Info - Alternating layout */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                {/* Image */}
-                <ScrollAnimation
-                  type={i % 2 === 0 ? "left" : "right"}
-                  className={i % 2 === 1 ? "lg:order-2" : ""}
-                >
+                {/* Image - Always left */}
+                <ScrollAnimation type="left">
                   <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
                     <Image
                       src={treatment.image}
@@ -59,11 +55,8 @@ export default function TreatmentsPage() {
                   </div>
                 </ScrollAnimation>
 
-                {/* Content */}
-                <ScrollAnimation
-                  type={i % 2 === 0 ? "right" : "left"}
-                  className={i % 2 === 1 ? "lg:order-1" : ""}
-                >
+                {/* Content - Always right */}
+                <ScrollAnimation type="right">
                   <div>
                     <span className="text-xs text-plum tracking-wider uppercase font-medium">
                       {treatment.subtitle}
@@ -110,7 +103,7 @@ export default function TreatmentsPage() {
                     </div>
 
                     <Link
-                      href="/contact"
+                      href={`/contact?treatment=${encodeURIComponent(treatment.title)}`}
                       className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-plum text-white text-sm font-medium rounded-full hover:bg-plum-dark transition-colors"
                     >
                       상담 예약하기
