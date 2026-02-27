@@ -19,12 +19,7 @@ export default function ContactPage() {
               Consultation
             </p>
             <h1 className="text-4xl md:text-5xl font-light text-espresso">
-              <span
-                className="italic text-plum"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                상담
-              </span>{" "}
+              <span className="text-plum">상담</span>{" "}
               예약
             </h1>
             <p className="text-espresso-muted mt-4 max-w-xl">
@@ -41,10 +36,7 @@ export default function ContactPage() {
             {/* Form - 3/5 */}
             <ScrollAnimation type="left" className="lg:col-span-3">
               <div className="bg-linen rounded-3xl p-8 lg:p-10">
-                <h2
-                  className="italic text-2xl text-espresso mb-2"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
+                <h2 className="text-2xl font-light text-espresso mb-2">
                   온라인 상담 신청
                 </h2>
                 <p className="text-sm text-gray-400 mb-8">

@@ -95,12 +95,7 @@ export default function AboutPage() {
             <ScrollAnimation type="right">
               <div>
                 <h2 className="text-3xl font-light text-espresso">
-                  <span
-                    className="italic text-plum"
-                    style={{ fontFamily: "var(--font-serif)" }}
-                  >
-                    빛
-                  </span>
+                  <span className="text-plum">빛</span>
                   이라는 이름에 담긴 약속
                 </h2>
                 <div className="mt-6 space-y-4 text-espresso-muted leading-relaxed">
@@ -166,12 +161,7 @@ export default function AboutPage() {
           <ScrollAnimation type="left">
             <div className="mb-12">
               <h2 className="text-3xl font-light text-espresso">
-                <span
-                  className="italic text-plum"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  클리닉
-                </span>{" "}
+                <span className="text-plum">클리닉</span>{" "}
                 시설
               </h2>
               <p className="text-gray-400 mt-2 text-sm">
@@ -207,10 +197,7 @@ export default function AboutPage() {
       <section className="py-20 bg-linen">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <ScrollAnimation type="blur">
-            <h2
-              className="italic text-2xl md:text-3xl text-espresso"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
+            <h2 className="text-2xl md:text-3xl text-espresso font-light">
               직접 방문하여 경험해보세요
             </h2>
             <p className="text-gray-400 mt-3 text-sm">

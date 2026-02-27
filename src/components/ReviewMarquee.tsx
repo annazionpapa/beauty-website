@@ -11,18 +11,30 @@ export default function ReviewMarquee() {
   }: {
     review: (typeof reviews)[0];
   }) => (
-    <div className="flex-shrink-0 w-80 p-6 bg-white rounded-2xl mx-3 shadow-sm">
-      <p className="text-sm text-espresso-light leading-relaxed line-clamp-3">
-        &ldquo;{review.content}&rdquo;
+    <div className="flex-shrink-0 w-[360px] bg-white rounded-3xl mx-3 p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+      {/* Large decorative quote mark */}
+      <span
+        className="text-5xl leading-none text-plum/15 block -mb-4"
+        style={{ fontFamily: "var(--font-serif)" }}
+      >
+        &ldquo;
+      </span>
+
+      {/* Review content in serif italic */}
+      <p className="text-[15px] text-espresso-light leading-relaxed line-clamp-4">
+        {review.content}
       </p>
-      <div className="mt-4 flex items-center justify-between">
+
+      {/* Divider */}
+      <div className="w-8 h-px bg-plum/20 mt-6 mb-4" />
+
+      {/* Author info */}
+      <div className="flex items-center justify-between">
         <div>
-          <span className="text-sm font-medium text-espresso">
-            {review.name}
-          </span>
-          <span className="text-xs text-gray-400 ml-2">{review.age}</span>
+          <p className="text-sm font-medium text-espresso">{review.name}</p>
+          <p className="text-xs text-gray-400 mt-0.5">{review.age}</p>
         </div>
-        <span className="text-xs px-3 py-1 bg-linen text-plum rounded-full font-medium">
+        <span className="text-xs px-3 py-1.5 bg-plum/8 text-plum rounded-full font-medium">
           {review.treatment}
         </span>
       </div>
@@ -30,7 +42,7 @@ export default function ReviewMarquee() {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {/* Row 1 - scroll left */}
       <div className="marquee-left flex">
         {[...row1, ...row1, ...row1, ...row1].map((review, i) => (

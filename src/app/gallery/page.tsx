@@ -142,10 +142,7 @@ export default function GalleryPage() {
       <section className="py-20 bg-linen">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <ScrollAnimation type="blur">
-            <h2
-              className="italic text-2xl md:text-3xl text-espresso"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
+            <h2 className="text-2xl md:text-3xl text-espresso font-light">
               나도 변화를 경험하고 싶다면
             </h2>
             <p className="text-gray-400 mt-3 text-sm">

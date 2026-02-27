@@ -36,10 +36,7 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl leading-[1.15] tracking-tight">
                 <span className="font-light text-espresso">아름다움의 시작,</span>
                 <br />
-                <span
-                  className="italic font-semibold text-plum"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
+                <span className="font-light text-plum">
                   빛나는 피부
                 </span>
               </h1>
@@ -82,7 +79,7 @@ export default function Home() {
             {/* Right - Organic blob image */}
             <div className="order-1 lg:order-2 relative">
               <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md xl:max-w-lg">
-                <div className="blob-shape overflow-hidden w-full h-full shadow-2xl">
+                <div className="rounded-3xl overflow-hidden w-full h-full shadow-2xl">
                   <Image
                     src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=1000&fit=crop"
                     alt="루체피부과"
@@ -119,10 +116,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <ScrollAnimation type="blur">
-            <h2
-              className="italic text-3xl md:text-4xl text-center text-espresso"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
+            <h2 className="text-3xl md:text-4xl text-center text-espresso font-light">
               어떤 피부 고민이 있으신가요?
             </h2>
             <p className="text-center text-gray-400 mt-3 text-sm">
@@ -159,13 +153,7 @@ export default function Home() {
             <div className="flex items-end justify-between mb-12">
               <div>
                 <h2 className="text-3xl md:text-4xl font-light text-espresso">
-                  대표{" "}
-                  <span
-                    className="italic text-plum"
-                    style={{ fontFamily: "var(--font-serif)" }}
-                  >
-                    시술
-                  </span>
+                  대표 <span className="text-plum">시술</span>
                 </h2>
                 <p className="text-gray-400 mt-2 text-sm">
                   전문의가 직접 시행하는 프리미엄 시술
@@ -292,7 +280,7 @@ export default function Home() {
             </div>
           </ScrollAnimation>
 
-          <ScrollAnimation type="clip">
+          <ScrollAnimation type="scale">
             <div className="rounded-2xl overflow-hidden">
               <BeforeAfterSlider
                 beforeImage="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1000&h=700&fit=crop"
@@ -328,12 +316,7 @@ export default function Home() {
             <div className="flex items-end justify-between mb-12">
               <div>
                 <h2 className="text-3xl md:text-4xl font-light text-espresso">
-                  <span
-                    className="italic text-plum"
-                    style={{ fontFamily: "var(--font-serif)" }}
-                  >
-                    전문
-                  </span>{" "}
+                  <span className="text-plum">전문</span>{" "}
                   의료진
                 </h2>
                 <p className="text-gray-400 mt-2 text-sm">
@@ -378,10 +361,7 @@ export default function Home() {
                         {doc.title}
                       </span>
                     </h3>
-                    <p
-                      className="italic text-sm text-espresso-muted mt-3 leading-relaxed"
-                      style={{ fontFamily: "var(--font-serif)" }}
-                    >
+                    <p className="text-sm text-espresso-muted mt-3 leading-relaxed italic">
                       &ldquo;{doc.greeting}&rdquo;
                     </p>
                   </div>
@@ -430,10 +410,7 @@ export default function Home() {
             <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
               Our Space
             </p>
-            <h2
-              className="italic text-3xl md:text-5xl text-white"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
+            <h2 className="text-3xl md:text-5xl text-white font-light">
               치료가 아닌, 힐링의 공간
             </h2>
             <Link
@@ -456,13 +433,7 @@ export default function Home() {
             <ScrollAnimation type="left">
               <div>
                 <h2 className="text-3xl font-light text-espresso mb-8">
-                  <span
-                    className="italic text-plum"
-                    style={{ fontFamily: "var(--font-serif)" }}
-                  >
-                    오시는
-                  </span>{" "}
-                  길
+                  <span className="text-plum">오시는</span> 길
                 </h2>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-silk mb-6">
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -515,10 +486,7 @@ export default function Home() {
             {/* Right - Booking Form */}
             <ScrollAnimation type="right">
               <div className="bg-linen rounded-3xl p-8 lg:p-10">
-                <h3
-                  className="italic text-2xl text-espresso mb-2"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
+                <h3 className="text-2xl font-light text-espresso mb-2">
                   상담 예약
                 </h3>
                 <p className="text-sm text-gray-400 mb-8">

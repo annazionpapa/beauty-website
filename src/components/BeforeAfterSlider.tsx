@@ -71,7 +71,7 @@ export default function BeforeAfterSlider({
         alt="After"
         fill
         className="object-cover"
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="(max-width: 768px) 100vw, 800px"
       />
 
       {/* Before Image (Clipped) */}
@@ -84,7 +84,7 @@ export default function BeforeAfterSlider({
           alt="Before"
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, 800px"
         />
       </div>
 
@@ -95,17 +95,27 @@ export default function BeforeAfterSlider({
       >
         <div className="w-0.5 h-full bg-white shadow-lg" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
-          <svg className="w-5 h-5 text-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+          <svg
+            className="w-5 h-5 text-plum"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+            />
           </svg>
         </div>
       </div>
 
       {/* Labels */}
-      <div className="absolute top-4 left-4 px-3 py-1 bg-navy/70 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+      <div className="absolute top-4 left-4 px-3 py-1.5 bg-espresso/60 text-white text-xs font-medium rounded-full backdrop-blur-sm">
         {beforeLabel}
       </div>
-      <div className="absolute top-4 right-4 px-3 py-1 bg-rose/70 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+      <div className="absolute top-4 right-4 px-3 py-1.5 bg-plum/60 text-white text-xs font-medium rounded-full backdrop-blur-sm">
         {afterLabel}
       </div>
     </div>

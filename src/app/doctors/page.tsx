@@ -21,12 +21,7 @@ export default function DoctorsPage() {
               Doctors
             </p>
             <h1 className="text-4xl md:text-5xl font-light text-espresso">
-              <span
-                className="italic text-plum"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                전문
-              </span>{" "}
+              <span className="text-plum">전문</span>{" "}
               의료진
             </h1>
             <p className="text-espresso-muted mt-4 max-w-xl">
@@ -80,10 +75,7 @@ export default function DoctorsPage() {
 
                   {/* Quote */}
                   <blockquote className="mt-6 pl-4 border-l-2 border-plum/30">
-                    <p
-                      className="italic text-lg text-espresso-muted leading-relaxed"
-                      style={{ fontFamily: "var(--font-serif)" }}
-                    >
+                    <p className="italic text-lg text-espresso-muted leading-relaxed">
                       &ldquo;{doctor.greeting}&rdquo;
                     </p>
                   </blockquote>
@@ -138,10 +130,7 @@ export default function DoctorsPage() {
       <section className="py-20 bg-linen">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <ScrollAnimation type="blur">
-            <h2
-              className="italic text-2xl md:text-3xl text-espresso"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
+            <h2 className="text-2xl md:text-3xl text-espresso font-light">
               전문의와 직접 상담하세요
             </h2>
             <p className="text-gray-400 mt-3 text-sm">
