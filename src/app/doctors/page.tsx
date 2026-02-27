@@ -1,126 +1,159 @@
 import Image from "next/image";
 import Link from "next/link";
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollAnimation from "@/components/ScrollAnimation";
 import { doctors } from "@/data/doctors";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "의료진 소개 | 루체피부과의원",
-  description: "피부과 전문의 3인이 각 분야의 전문성으로 최적의 진료를 제공합니다.",
+  description:
+    "피부과 전문의 3인이 각 분야의 전문성으로 최적의 진료를 제공합니다.",
 };
 
 export default function DoctorsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1920&h=800&fit=crop"
-            alt="의료진 소개"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-navy/40" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <p className="text-rose-light text-sm tracking-[0.3em] uppercase mb-3">Doctors</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">의료진 소개</h1>
-          <p className="text-gray-300 mt-4 max-w-xl">
-            피부과 전문의 3인이 각 분야의 전문성으로 최적의 진료를 제공합니다.
-          </p>
+      {/* Page Header */}
+      <section className="pt-32 pb-16 bg-linen">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <ScrollAnimation type="blur">
+            <p className="text-xs text-plum tracking-[0.3em] uppercase font-medium mb-3">
+              Doctors
+            </p>
+            <h1 className="text-4xl md:text-5xl font-light text-espresso">
+              <span
+                className="italic text-plum"
+                style={{ fontFamily: "var(--font-serif)" }}
+              >
+                전문
+              </span>{" "}
+              의료진
+            </h1>
+            <p className="text-espresso-muted mt-4 max-w-xl">
+              각 분야의 전문의가 당신의 피부 고민에 최적의 솔루션을 제안합니다.
+            </p>
+          </ScrollAnimation>
         </div>
       </section>
 
-      {/* Doctors Detail */}
-      <section className="py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24">
-            {doctors.map((doctor, idx) => (
-              <ScrollReveal key={doctor.id}>
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start`}>
-                  {/* Photo */}
-                  <div className={`relative aspect-[3/4] max-h-[600px] rounded-2xl overflow-hidden ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <Image
-                      src={doctor.image}
-                      alt={doctor.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </div>
+      {/* Doctor Profiles */}
+      <section className="pb-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {doctors.map((doctor, i) => (
+            <div
+              key={doctor.id}
+              className={`grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start py-16 ${
+                i < doctors.length - 1 ? "border-b border-gray-100" : ""
+              }`}
+            >
+              {/* Photo - 2/5 width */}
+              <ScrollAnimation
+                type={i % 2 === 0 ? "left" : "right"}
+                className={`lg:col-span-2 ${i % 2 === 1 ? "lg:order-2" : ""}`}
+              >
+                <div className="relative aspect-[3/4] rounded-3xl overflow-hidden max-w-sm mx-auto lg:max-w-none">
+                  <Image
+                    src={doctor.image}
+                    alt={doctor.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 80vw, 35vw"
+                  />
+                </div>
+              </ScrollAnimation>
 
-                  {/* Info */}
-                  <div className={`py-4 ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <p className="text-rose text-sm tracking-[0.2em] uppercase font-medium mb-2">
-                      {doctor.specialty}
+              {/* Info - 3/5 width */}
+              <ScrollAnimation
+                type={i % 2 === 0 ? "right" : "left"}
+                className={`lg:col-span-3 ${i % 2 === 1 ? "lg:order-1" : ""}`}
+              >
+                <div className="lg:py-8">
+                  <span className="text-xs text-plum tracking-wider uppercase font-medium">
+                    {doctor.specialty}
+                  </span>
+                  <h2 className="text-3xl font-semibold text-espresso mt-2">
+                    {doctor.name}
+                    <span className="text-lg font-normal text-gray-400 ml-3">
+                      {doctor.title}
+                    </span>
+                  </h2>
+
+                  {/* Quote */}
+                  <blockquote className="mt-6 pl-4 border-l-2 border-plum/30">
+                    <p
+                      className="italic text-lg text-espresso-muted leading-relaxed"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      &ldquo;{doctor.greeting}&rdquo;
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-navy mb-1">
-                      {doctor.name}
-                      <span className="text-lg font-normal text-gray-500 ml-3">{doctor.title}</span>
-                    </h2>
-                    <p className="text-sm text-gray-400 mb-6">{doctor.nameEn}</p>
+                  </blockquote>
 
-                    {/* Greeting */}
-                    <blockquote className="bg-blush rounded-xl p-6 mb-8 border-l-4 border-rose">
-                      <p className="text-gray-600 italic leading-relaxed">
-                        &ldquo;{doctor.greeting}&rdquo;
-                      </p>
-                    </blockquote>
-
-                    {/* Education */}
-                    <div className="mb-6">
-                      <h3 className="text-sm font-bold text-navy uppercase tracking-wider mb-3">학력</h3>
-                      <ul className="space-y-2">
+                  {/* Education & Career */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+                    <div>
+                      <h3 className="text-sm font-semibold text-espresso mb-3">
+                        학력
+                      </h3>
+                      <ul className="space-y-1.5">
                         {doctor.education.map((edu) => (
-                          <li key={edu} className="flex items-center gap-3 text-gray-600">
-                            <div className="w-1.5 h-1.5 bg-rose rounded-full shrink-0" />
+                          <li key={edu} className="text-sm text-espresso-muted">
                             {edu}
                           </li>
                         ))}
                       </ul>
                     </div>
-
-                    {/* Career */}
-                    <div className="mb-6">
-                      <h3 className="text-sm font-bold text-navy uppercase tracking-wider mb-3">경력</h3>
-                      <ul className="space-y-2">
-                        {doctor.career.map((item) => (
-                          <li key={item} className="flex items-center gap-3 text-gray-600">
-                            <div className="w-1.5 h-1.5 bg-gold rounded-full shrink-0" />
-                            {item}
+                    <div>
+                      <h3 className="text-sm font-semibold text-espresso mb-3">
+                        경력
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {doctor.career.map((c) => (
+                          <li key={c} className="text-sm text-espresso-muted">
+                            {c}
                           </li>
                         ))}
                       </ul>
                     </div>
+                  </div>
 
-                    {/* Certifications */}
-                    <div className="mb-8">
-                      <h3 className="text-sm font-bold text-navy uppercase tracking-wider mb-3">자격 및 활동</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {doctor.certifications.map((cert) => (
-                          <span
-                            key={cert}
-                            className="px-3 py-1.5 bg-white text-sm text-navy rounded-full border border-gray-200"
-                          >
-                            {cert}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 px-8 py-3.5 bg-rose text-white font-medium rounded-full hover:bg-rose-dark transition-colors"
-                    >
-                      {doctor.name} 원장 상담 예약
-                    </Link>
+                  {/* Certifications as tags */}
+                  <div className="flex flex-wrap gap-2 mt-8">
+                    {doctor.certifications.map((cert) => (
+                      <span
+                        key={cert}
+                        className="px-3 py-1.5 bg-plum/8 text-plum text-xs rounded-full"
+                      >
+                        {cert}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              </ScrollAnimation>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-linen">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <ScrollAnimation type="blur">
+            <h2
+              className="italic text-2xl md:text-3xl text-espresso"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              전문의와 직접 상담하세요
+            </h2>
+            <p className="text-gray-400 mt-3 text-sm">
+              1:1 맞춤 상담으로 최적의 치료 플랜을 설계합니다
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex px-8 py-3.5 bg-plum text-white font-medium rounded-full hover:bg-plum-dark transition-colors mt-8"
+            >
+              상담 예약하기
+            </Link>
+          </ScrollAnimation>
         </div>
       </section>
 
