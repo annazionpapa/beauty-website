@@ -1,17 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ===== New Color Palette: Plum + Nude + Sage ===== */
+  /* ===== Color Palette: Plum + Warm Neutral ===== */
   --color-plum: #6B4C5E;
   --color-plum-light: #8A6B7D;
   --color-plum-dark: #4A3040;
 
   --color-nude: #D4B5A0;
   --color-nude-light: #E8D5C8;
-  --color-nude-dark: #B89880;
 
   --color-sage: #8FA89B;
-  --color-sage-light: #B8CCBF;
 
   --color-linen: #F7F3EF;
   --color-silk: #EDE7E0;
@@ -52,81 +50,22 @@ html {
   color: white;
 }
 
-/* ===== Multiple Animation Types ===== */
-.anim {
+/* ===== Single Animation: Fade Up ===== */
+.fade-up {
   opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.anim.visible {
+.fade-up.visible {
   opacity: 1;
-  transform: none !important;
-  filter: none !important;
+  transform: translateY(0);
 }
 
-.anim-up { transform: translateY(40px); }
-.anim-left { transform: translateX(-60px); }
-.anim-right { transform: translateX(60px); }
-.anim-scale { transform: scale(0.92); }
-.anim-blur { filter: blur(8px); transform: translateY(10px); }
-
-.anim-clip {
-  opacity: 0;
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
-}
-.anim-clip.visible {
-  opacity: 1;
-  clip-path: inset(0 0 0 0);
-}
-
-.anim-delay-1 { transition-delay: 0.1s; }
-.anim-delay-2 { transition-delay: 0.2s; }
-.anim-delay-3 { transition-delay: 0.25s; }
-.anim-delay-4 { transition-delay: 0.35s; }
-.anim-delay-5 { transition-delay: 0.45s; }
-.anim-delay-6 { transition-delay: 0.55s; }
-
-/* ===== Organic Shape ===== */
-.blob-shape {
-  border-radius: 42% 58% 55% 45% / 58% 42% 48% 52%;
-}
-
-/* ===== Marquee ===== */
-@keyframes marquee-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marquee-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-.marquee-left {
-  animation: marquee-left 45s linear infinite;
-}
-.marquee-right {
-  animation: marquee-right 45s linear infinite;
-}
-.marquee-left:hover,
-.marquee-right:hover {
-  animation-play-state: paused;
-}
-
-/* ===== Glass Card ===== */
-.glass {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/* ===== Before/After Slider ===== */
-.before-after-container {
-  position: relative;
-  overflow: hidden;
-  cursor: ew-resize;
-  user-select: none;
-  -webkit-user-select: none;
-}
+.fade-up-d1 { transition-delay: 0.1s; }
+.fade-up-d2 { transition-delay: 0.2s; }
+.fade-up-d3 { transition-delay: 0.3s; }
+.fade-up-d4 { transition-delay: 0.4s; }
+.fade-up-d5 { transition-delay: 0.5s; }
 
 /* ===== Treatment Card Hover ===== */
 .treatment-card img {
@@ -136,6 +75,19 @@ html {
   transform: scale(1.05);
 }
 
+/* ===== Marquee (kept for sub-pages) ===== */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-left { animation: marquee-left 45s linear infinite; }
+.marquee-right { animation: marquee-right 45s linear infinite; }
+.marquee-left:hover, .marquee-right:hover { animation-play-state: paused; }
+
 /* ===== Horizontal Scroll ===== */
 .horizontal-scroll {
   overflow-x: auto;
@@ -144,14 +96,8 @@ html {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.horizontal-scroll::-webkit-scrollbar {
-  display: none;
-}
-.horizontal-scroll > * {
-  scroll-snap-align: start;
-}
-
-/* Mobile typography handled by Tailwind responsive classes */
+.horizontal-scroll::-webkit-scrollbar { display: none; }
+.horizontal-scroll > * { scroll-snap-align: start; }
 
 /* Mobile Bottom Padding */
 @media (max-width: 1023px) {
@@ -160,8 +106,7 @@ html {
 
 /* ===== Reduced Motion ===== */
 @media (prefers-reduced-motion: reduce) {
-  .anim { opacity: 1; transform: none; filter: none; transition: none; }
-  .anim-clip { opacity: 1; clip-path: none; transition: none; }
+  .fade-up { opacity: 1; transform: none; transition: none; }
   .marquee-left, .marquee-right { animation: none; }
   html { scroll-behavior: auto; }
   .treatment-card img { transition: none; }

@@ -18,7 +18,7 @@ export const doctors: Doctor[] = [
     nameEn: "Dr. Kim Seo-yeon",
     title: "대표원장",
     specialty: "리프팅 · 레이저 전문",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=750&fit=crop",
+    image: "/images/doctor-kim.jpg",
     education: [
       "서울대학교 의과대학 졸업",
       "서울대학교 의과대학 석사",
@@ -42,7 +42,7 @@ export const doctors: Doctor[] = [
     nameEn: "Dr. Lee Jun-ho",
     title: "원장",
     specialty: "보톡스 · 필러 전문",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=750&fit=crop",
+    image: "/images/doctor-lee.jpg",
     education: [
       "연세대학교 의과대학 졸업",
       "연세대학교 의과대학 박사",
@@ -66,7 +66,7 @@ export const doctors: Doctor[] = [
     nameEn: "Dr. Park Min-ji",
     title: "원장",
     specialty: "여드름 · 흉터 전문",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=750&fit=crop",
+    image: "/images/doctor-park.jpg",
     education: [
       "고려대학교 의과대학 졸업",
       "고려대학교 의과대학 석사",

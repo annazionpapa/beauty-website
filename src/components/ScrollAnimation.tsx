@@ -2,18 +2,15 @@
 
 import { useEffect, useRef, ReactNode } from "react";
 
-type AnimationType = "up" | "left" | "right" | "scale" | "blur" | "clip";
-
 interface ScrollAnimationProps {
   children: ReactNode;
-  type?: AnimationType;
+  type?: string;
   delay?: number;
   className?: string;
 }
 
 export default function ScrollAnimation({
   children,
-  type = "up",
   delay = 0,
   className = "",
 }: ScrollAnimationProps) {
@@ -30,18 +27,17 @@ export default function ScrollAnimation({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const animClass = type === "clip" ? "anim-clip" : `anim anim-${type}`;
-  const delayClass = delay > 0 ? `anim-delay-${delay}` : "";
+  const delayClass = delay > 0 ? `fade-up-d${delay}` : "";
 
   return (
-    <div ref={ref} className={`${animClass} ${delayClass} ${className}`}>
+    <div ref={ref} className={`fade-up ${delayClass} ${className}`}>
       {children}
     </div>
   );
