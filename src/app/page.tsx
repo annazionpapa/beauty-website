@@ -151,13 +151,18 @@ export default function Home() {
               <ScrollAnimation key={doc.id} delay={i + 1}>
                 <div className="group bg-white rounded-2xl overflow-hidden">
                   <div className="relative aspect-[3/4] overflow-hidden">
-                    <Image
-                      src={doc.image}
-                      alt={doc.name}
-                      fill
-                      className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
+                    <div
+                      className="absolute inset-0"
+                      style={doc.imageScale ? { transform: `scale(${doc.imageScale})`, transformOrigin: 'top center' } : undefined}
+                    >
+                      <Image
+                        src={doc.image}
+                        alt={doc.name}
+                        fill
+                        className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
                   </div>
                   <div className="p-6">
                     <p className="text-xs text-plum font-medium tracking-wider mb-1">

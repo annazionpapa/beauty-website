@@ -5,6 +5,7 @@ export interface Doctor {
   title: string;
   specialty: string;
   image: string;
+  imageScale?: number;
   education: string[];
   career: string[];
   certifications: string[];
@@ -19,6 +20,7 @@ export const doctors: Doctor[] = [
     title: "대표원장",
     specialty: "리프팅 · 레이저 전문",
     image: "/images/doctor-kim.jpg",
+    imageScale: 1.15,
     education: [
       "서울대학교 의과대학 졸업",
       "서울대학교 의과대학 석사",
@@ -43,6 +45,7 @@ export const doctors: Doctor[] = [
     title: "원장",
     specialty: "보톡스 · 필러 전문",
     image: "/images/doctor-lee.jpg",
+    imageScale: 1.15,
     education: [
       "연세대학교 의과대학 졸업",
       "연세대학교 의과대학 박사",

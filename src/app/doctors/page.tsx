@@ -47,13 +47,18 @@ export default function DoctorsPage() {
                 className={`lg:col-span-2 ${i % 2 === 1 ? "lg:order-2" : ""}`}
               >
                 <div className="relative aspect-[3/4] rounded-3xl overflow-hidden max-w-sm mx-auto lg:max-w-none">
-                  <Image
-                    src={doctor.image}
-                    alt={doctor.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 80vw, 35vw"
-                  />
+                  <div
+                    className="absolute inset-0"
+                    style={doctor.imageScale ? { transform: `scale(${doctor.imageScale})`, transformOrigin: 'top center' } : undefined}
+                  >
+                    <Image
+                      src={doctor.image}
+                      alt={doctor.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 80vw, 35vw"
+                    />
+                  </div>
                 </div>
               </ScrollAnimation>
 
