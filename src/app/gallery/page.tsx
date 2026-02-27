@@ -13,10 +13,8 @@ const galleryItems = [
   {
     id: 1,
     category: "리프팅",
-    before:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
-    after:
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop",
+    before: "/images/gallery/gallery-lifting-before.jpg",
+    after: "/images/gallery/gallery-lifting-after.jpg",
     treatment: "울쎄라 리프팅 2회",
     patient: "40대 여성",
     period: "3개월 경과",
@@ -24,10 +22,8 @@ const galleryItems = [
   {
     id: 2,
     category: "레이저",
-    before:
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&h=600&fit=crop",
-    after:
-      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop",
+    before: "/images/gallery/gallery-laser-before.jpg",
+    after: "/images/gallery/gallery-laser-after.jpg",
     treatment: "피코레이저 5회 + 물광주사",
     patient: "30대 여성",
     period: "2개월 경과",
@@ -35,10 +31,8 @@ const galleryItems = [
   {
     id: 3,
     category: "보톡스 & 필러",
-    before:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964f137?w=800&h=600&fit=crop",
-    after:
-      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&h=600&fit=crop",
+    before: "/images/gallery/gallery-botox-before.jpg",
+    after: "/images/gallery/gallery-botox-after.jpg",
     treatment: "보톡스 + 필러 시술",
     patient: "30대 여성",
     period: "1개월 경과",
@@ -46,10 +40,8 @@ const galleryItems = [
   {
     id: 4,
     category: "피부관리",
-    before:
-      "https://images.unsplash.com/photo-1505944270255-72b8c68c6a70?w=800&h=600&fit=crop",
-    after:
-      "https://images.unsplash.com/photo-1552693673-1bf958298935?w=800&h=600&fit=crop",
+    before: "/images/gallery/gallery-skincare-before.jpg",
+    after: "/images/gallery/gallery-skincare-after.jpg",
     treatment: "물광주사 3회 + PRP",
     patient: "20대 여성",
     period: "6주 경과",
@@ -57,10 +49,8 @@ const galleryItems = [
   {
     id: 5,
     category: "여드름",
-    before:
-      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&h=600&fit=crop",
-    after:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&h=600&fit=crop",
+    before: "/images/gallery/gallery-acne-before.jpg",
+    after: "/images/gallery/gallery-acne-after.jpg",
     treatment: "여드름 집중관리 프로그램",
     patient: "20대 남성",
     period: "3개월 경과",
@@ -68,10 +58,8 @@ const galleryItems = [
   {
     id: 6,
     category: "색소",
-    before:
-      "https://images.unsplash.com/photo-1523263685509-57c1d050d19b?w=800&h=600&fit=crop",
-    after:
-      "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&h=600&fit=crop",
+    before: "/images/gallery/gallery-pigment-before.jpg",
+    after: "/images/gallery/gallery-pigment-after.jpg",
     treatment: "레이저토닝 8회 + 미백관리",
     patient: "50대 여성",
     period: "4개월 경과",

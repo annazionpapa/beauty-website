@@ -34,19 +34,19 @@ const values = [
 
 const facilities = [
   {
-    src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop",
+    src: "/images/about-waiting.jpg",
     label: "대기실",
   },
   {
-    src: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=400&fit=crop",
+    src: "/images/about-consultation.jpg",
     label: "진료실",
   },
   {
-    src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop",
+    src: "/images/about-treatment.jpg",
     label: "시술실",
   },
   {
-    src: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&h=400&fit=crop",
+    src: "/images/about-counseling.jpg",
     label: "상담실",
   },
 ];
@@ -84,7 +84,7 @@ export default function AboutPage() {
             <ScrollAnimation type="left">
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop"
+                  src="/images/about-clinic.jpg"
                   alt="루체피부과 클리닉"
                   fill
                   className="object-cover"
