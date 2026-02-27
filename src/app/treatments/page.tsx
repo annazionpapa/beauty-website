@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function TreatmentsPage() {
   return (
     <>
-      {/* Page Header - Clean, no dark overlay */}
+      {/* Page Header */}
       <section className="pt-32 pb-16 bg-linen">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollAnimation type="blur">
@@ -31,90 +31,148 @@ export default function TreatmentsPage() {
         </div>
       </section>
 
-      {/* Treatments - Alternating editorial layout */}
+      {/* Treatments */}
       <section className="pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {treatments.map((treatment, i) => (
             <div
               key={treatment.id}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-16 ${
+              className={`py-16 ${
                 i < treatments.length - 1 ? "border-b border-gray-100" : ""
               }`}
             >
-              {/* Image */}
-              <ScrollAnimation
-                type={i % 2 === 0 ? "left" : "right"}
-                className={i % 2 === 1 ? "lg:order-2" : ""}
-              >
-                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-                  <Image
-                    src={treatment.image}
-                    alt={treatment.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </div>
-              </ScrollAnimation>
+              {/* Treatment Info - Alternating layout */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                {/* Image */}
+                <ScrollAnimation
+                  type={i % 2 === 0 ? "left" : "right"}
+                  className={i % 2 === 1 ? "lg:order-2" : ""}
+                >
+                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+                    <Image
+                      src={treatment.image}
+                      alt={treatment.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
+                </ScrollAnimation>
 
-              {/* Content */}
-              <ScrollAnimation
-                type={i % 2 === 0 ? "right" : "left"}
-                className={i % 2 === 1 ? "lg:order-1" : ""}
-              >
-                <div>
-                  <span className="text-xs text-plum tracking-wider uppercase font-medium">
-                    {treatment.subtitle}
-                  </span>
-                  <h2 className="text-3xl font-light text-espresso mt-2">
-                    <span className="text-plum font-medium">
-                      {treatment.title}
+                {/* Content */}
+                <ScrollAnimation
+                  type={i % 2 === 0 ? "right" : "left"}
+                  className={i % 2 === 1 ? "lg:order-1" : ""}
+                >
+                  <div>
+                    <span className="text-xs text-plum tracking-wider uppercase font-medium">
+                      {treatment.subtitle}
                     </span>
-                  </h2>
-                  <p className="text-espresso-muted mt-4 leading-relaxed">
-                    {treatment.description}
-                  </p>
+                    <h2 className="text-3xl font-light text-espresso mt-2">
+                      <span className="text-plum font-medium">
+                        {treatment.title}
+                      </span>
+                    </h2>
+                    <p className="text-espresso-muted mt-4 leading-relaxed">
+                      {treatment.description}
+                    </p>
 
-                  {/* Details */}
-                  <ul className="mt-6 space-y-2">
-                    {treatment.details.map((detail) => (
-                      <li
-                        key={detail}
-                        className="flex items-start gap-2 text-sm text-espresso-light"
+                    {/* Details */}
+                    <ul className="mt-6 space-y-2">
+                      {treatment.details.map((detail) => (
+                        <li
+                          key={detail}
+                          className="flex items-start gap-2 text-sm text-espresso-light"
+                        >
+                          <span className="text-plum mt-1">·</span>
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-3 mt-8">
+                      {treatment.duration && (
+                        <span className="px-4 py-1.5 bg-plum/8 text-plum text-xs rounded-full">
+                          ⏱ {treatment.duration}
+                        </span>
+                      )}
+                      {treatment.recovery && (
+                        <span className="px-4 py-1.5 bg-sage/15 text-espresso-muted text-xs rounded-full">
+                          🔄 {treatment.recovery}
+                        </span>
+                      )}
+                      {treatment.priceHint && (
+                        <span className="px-4 py-1.5 bg-nude/30 text-espresso-muted text-xs rounded-full">
+                          💰 {treatment.priceHint}
+                        </span>
+                      )}
+                    </div>
+
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-plum text-white text-sm font-medium rounded-full hover:bg-plum-dark transition-colors"
+                    >
+                      상담 예약하기
+                    </Link>
+                  </div>
+                </ScrollAnimation>
+              </div>
+
+              {/* Before & After Section */}
+              {treatment.beforeImage && treatment.afterImage && (
+                <ScrollAnimation type="scale" className="mt-12">
+                  <div className="bg-linen rounded-2xl p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-8 h-px bg-plum/30" />
+                      <p
+                        className="text-xs text-plum tracking-[0.15em] uppercase font-medium"
+                        style={{ fontFamily: "var(--font-serif)" }}
                       >
-                        <span className="text-plum mt-1">·</span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-3 mt-8">
-                    {treatment.duration && (
-                      <span className="px-4 py-1.5 bg-plum/8 text-plum text-xs rounded-full">
-                        ⏱ {treatment.duration}
-                      </span>
-                    )}
-                    {treatment.recovery && (
-                      <span className="px-4 py-1.5 bg-sage/15 text-espresso-muted text-xs rounded-full">
-                        🔄 {treatment.recovery}
-                      </span>
-                    )}
-                    {treatment.priceHint && (
-                      <span className="px-4 py-1.5 bg-nude/30 text-espresso-muted text-xs rounded-full">
-                        💰 {treatment.priceHint}
-                      </span>
+                        Before &amp; After
+                      </p>
+                      <div className="w-8 h-px bg-plum/30" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 lg:gap-6">
+                      {/* Before */}
+                      <div className="relative">
+                        <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                          <Image
+                            src={treatment.beforeImage}
+                            alt={`${treatment.title} 시술 전`}
+                            fill
+                            className="object-cover object-top"
+                            sizes="(max-width: 1024px) 45vw, 35vw"
+                          />
+                        </div>
+                        <span className="absolute top-3 left-3 px-2.5 py-1 bg-espresso/50 text-white text-[10px] font-medium tracking-wider uppercase rounded-full backdrop-blur-sm">
+                          Before
+                        </span>
+                      </div>
+                      {/* After */}
+                      <div className="relative">
+                        <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                          <Image
+                            src={treatment.afterImage}
+                            alt={`${treatment.title} 시술 후`}
+                            fill
+                            className="object-cover object-top"
+                            sizes="(max-width: 1024px) 45vw, 35vw"
+                          />
+                        </div>
+                        <span className="absolute top-3 left-3 px-2.5 py-1 bg-plum/50 text-white text-[10px] font-medium tracking-wider uppercase rounded-full backdrop-blur-sm">
+                          After
+                        </span>
+                      </div>
+                    </div>
+                    {treatment.beforeAfterInfo && (
+                      <p className="text-xs text-gray-400 text-center mt-4">
+                        {treatment.beforeAfterInfo}
+                      </p>
                     )}
                   </div>
-
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-plum text-white text-sm font-medium rounded-full hover:bg-plum-dark transition-colors"
-                  >
-                    상담 예약하기
-                  </Link>
-                </div>
-              </ScrollAnimation>
+                </ScrollAnimation>
+              )}
             </div>
           ))}
         </div>

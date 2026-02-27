@@ -5,6 +5,9 @@ export interface Treatment {
   description: string;
   details: string[];
   image: string;
+  beforeImage?: string;
+  afterImage?: string;
+  beforeAfterInfo?: string;
   priceHint: string;
   duration: string;
   recovery: string;
@@ -24,6 +27,9 @@ export const treatments: Treatment[] = [
       "슈링크 유니버스 (Shurink)",
     ],
     image: "/images/treatment-lifting.jpg",
+    beforeImage: "/images/gallery/gallery-lifting-before.jpg",
+    afterImage: "/images/gallery/gallery-lifting-after.jpg",
+    beforeAfterInfo: "울쎄라 리프팅 2회 · 40대 여성 · 3개월 경과",
     priceHint: "30만원~",
     duration: "30~60분",
     recovery: "당일 일상 가능",
@@ -41,6 +47,9 @@ export const treatments: Treatment[] = [
       "엑셀V (Excel V)",
     ],
     image: "/images/treatment-laser.jpg",
+    beforeImage: "/images/gallery/gallery-laser-before.jpg",
+    afterImage: "/images/gallery/gallery-laser-after.jpg",
+    beforeAfterInfo: "피코레이저 5회 + 물광주사 · 30대 여성 · 2개월 경과",
     priceHint: "15만원~",
     duration: "20~40분",
     recovery: "1~3일",
@@ -58,6 +67,9 @@ export const treatments: Treatment[] = [
       "입술·턱 필러",
     ],
     image: "/images/treatment-botox.jpg",
+    beforeImage: "/images/gallery/gallery-botox-before.jpg",
+    afterImage: "/images/gallery/gallery-botox-after.jpg",
+    beforeAfterInfo: "보톡스 + 필러 시술 · 30대 여성 · 1개월 경과",
     priceHint: "10만원~",
     duration: "15~30분",
     recovery: "즉시 일상 가능",
@@ -75,6 +87,9 @@ export const treatments: Treatment[] = [
       "LDM 초음파 관리",
     ],
     image: "/images/treatment-skincare.jpg",
+    beforeImage: "/images/gallery/gallery-skincare-before.jpg",
+    afterImage: "/images/gallery/gallery-skincare-after.jpg",
+    beforeAfterInfo: "물광주사 3회 + PRP · 20대 여성 · 6주 경과",
     priceHint: "15만원~",
     duration: "40~60분",
     recovery: "당일 일상 가능",
@@ -92,6 +107,9 @@ export const treatments: Treatment[] = [
       "MTS·MNRF 흉터 개선",
     ],
     image: "/images/treatment-acne.jpg",
+    beforeImage: "/images/gallery/gallery-acne-before.jpg",
+    afterImage: "/images/gallery/gallery-acne-after.jpg",
+    beforeAfterInfo: "여드름 집중관리 프로그램 · 20대 남성 · 3개월 경과",
     priceHint: "10만원~",
     duration: "30~50분",
     recovery: "2~5일",
@@ -109,6 +127,9 @@ export const treatments: Treatment[] = [
       "글루타치온 미백 주사",
     ],
     image: "/images/treatment-pigment.jpg",
+    beforeImage: "/images/gallery/gallery-pigment-before.jpg",
+    afterImage: "/images/gallery/gallery-pigment-after.jpg",
+    beforeAfterInfo: "레이저토닝 8회 + 미백관리 · 50대 여성 · 4개월 경과",
     priceHint: "10만원~",
     duration: "20~40분",
     recovery: "1~3일",

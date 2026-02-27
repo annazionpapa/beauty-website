@@ -8,7 +8,7 @@ const navItems = [
   { href: "/", label: "홈" },
   { href: "/treatments", label: "시술" },
   { href: "/doctors", label: "의료진" },
-  { href: "/gallery", label: "갤러리" },
+  { href: "/reviews", label: "후기" },
   { href: "/about", label: "소개" },
 ];
 
