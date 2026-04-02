@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>크몽 썸네일 — 4 Versions</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard Variable', sans-serif;
+    background: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    gap: 60px;
+  }
+
+  h2.label {
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: -36px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ==================== 공통 ==================== */
+  .thumb {
+    width: 652px;
+    height: 488px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  /* ==================== VERSION A : 그라데이션 + 태그 ==================== */
+  .thumb-a {
+    background: linear-gradient(160deg, #08081a 0%, #0e1030 40%, #150d2e 70%, #0c0818 100%);
+  }
+
+  /* 미세한 노이즈 텍스처 */
+  .thumb-a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .thumb-a .glow {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .thumb-a .glow-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 60%);
+    top: -180px; right: -80px;
+  }
+
+  .thumb-a .glow-2 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 60%);
+    bottom: -80px; left: -60px;
+  }
+
+  /* 상단 악센트 라인 */
+  .thumb-a .accent-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #6366f1, #a855f7, transparent);
+    z-index: 3;
+  }
+
+  .thumb-a .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .thumb-a .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+
+  .thumb-a .tag {
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.18);
+    color: rgba(165,160,255,0.9);
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(4px);
+  }
+
+  .thumb-a h1 {
+    font-size: 88px;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    color: #fff;
+  }
+
+  .thumb-a h1 .hl {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .thumb-a h1 .dot {
+    font-weight: 200;
+    font-size: 68px;
+    -webkit-text-fill-color: rgba(255,255,255,0.1);
+    background: none;
+    -webkit-background-clip: unset;
+  }
+
+  .thumb-a h1 .line2 {
+    display: block;
+    -webkit-text-fill-color: rgba(255,255,255,0.95);
+    background: none;
+    -webkit-background-clip: unset;
+    font-size: 82px;
+    letter-spacing: -0.03em;
+  }
+
+  /* ==================== VERSION B : 텍스트 온리 초미니멀 ==================== */
+  .thumb-b {
+    background: linear-gradient(170deg, #06060f 0%, #0d0d24 50%, #08081a 100%);
+  }
+
+  .thumb-b::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .thumb-b .glow {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .thumb-b .glow-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 55%);
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .thumb-b .glow-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(168,85,247,0.04) 0%, transparent 55%);
+    bottom: -50px; right: -50px;
+  }
+
+  .thumb-b .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .thumb-b h1 {
+    font-size: 105px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+    color: #fff;
+  }
+
+  .thumb-b h1 .hl {
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .thumb-b h1 .dot {
+    font-weight: 200;
+    font-size: 82px;
+    -webkit-text-fill-color: rgba(255,255,255,0.08);
+    background: none;
+    -webkit-background-clip: unset;
+  }
+
+  .thumb-b h1 .line2 {
+    display: block;
+    -webkit-text-fill-color: rgba(255,255,255,0.95);
+    background: none;
+    -webkit-background-clip: unset;
+    font-size: 96px;
+    letter-spacing: -0.035em;
+  }
+
+  .thumb-b .tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .thumb-b .tag {
+    padding: 5px 13px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgba(99,102,241,0.06);
+    border: 1px solid rgba(99,102,241,0.15);
+    color: rgba(165,160,255,0.7);
+    letter-spacing: -0.01em;
+  }
+
+  /* 하단 악센트 바 */
+  .thumb-b .accent-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 10%, #6366f1 30%, #a855f7 70%, transparent 90%);
+    z-index: 3;
+  }
+
+  /* ==================== VERSION C : 사진 배경 + 태그 ==================== */
+  .thumb-c {
+    background: #000;
+  }
+
+  .thumb-c .bg-img {
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero.jpg') center center / cover no-repeat;
+    filter: blur(6px) brightness(0.25) saturate(0.5);
+    transform: scale(1.05);
+    z-index: 0;
+  }
+
+  /* 어두운 오버레이 + 비네트 */
+  .thumb-c .overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(10,5,30,0.5) 100%);
+    z-index: 1;
+  }
+
+  .thumb-c .accent-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(168,85,247,0.7), rgba(99,102,241,0.7), transparent);
+    z-index: 4;
+  }
+
+  .thumb-c .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    text-align: center;
+  }
+
+  .thumb-c .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 34px;
+  }
+
+  .thumb-c .tag {
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(200,190,255,0.9);
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .thumb-c h1 {
+    font-size: 90px;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    color: #fff;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.4);
+  }
+
+  .thumb-c h1 .hl {
+    background: linear-gradient(135deg, #a5b4fc 0%, #d8b4fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 20px rgba(139,92,246,0.3));
+  }
+
+  .thumb-c h1 .dot {
+    font-weight: 200;
+    font-size: 70px;
+    -webkit-text-fill-color: rgba(255,255,255,0.12);
+    background: none;
+    -webkit-background-clip: unset;
+  }
+
+  .thumb-c h1 .line2 {
+    display: block;
+    -webkit-text-fill-color: rgba(255,255,255,0.95);
+    background: none;
+    -webkit-background-clip: unset;
+    font-size: 84px;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+  }
+
+  /* ==================== VERSION D : 사진 배경 + 텍스트 온리 ==================== */
+  .thumb-d {
+    background: #000;
+  }
+
+  .thumb-d .bg-img {
+    position: absolute;
+    inset: 0;
+    background: url('/images/about-consultation.jpg') center 30% / cover no-repeat;
+    filter: blur(8px) brightness(0.2) saturate(0.4);
+    transform: scale(1.08);
+    z-index: 0;
+  }
+
+  .thumb-d .overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at center, rgba(15,10,40,0.3) 0%, rgba(0,0,0,0.7) 100%),
+      linear-gradient(180deg, rgba(10,5,25,0.4) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+  }
+
+  .thumb-d .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    text-align: center;
+  }
+
+  .thumb-d h1 {
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1.06;
+    letter-spacing: -0.05em;
+    color: #fff;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  }
+
+  .thumb-d h1 .hl {
+    background: linear-gradient(135deg, #c4b5fd 0%, #e9d5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 24px rgba(168,85,247,0.25));
+  }
+
+  .thumb-d h1 .dot {
+    font-weight: 200;
+    font-size: 78px;
+    -webkit-text-fill-color: rgba(255,255,255,0.08);
+    background: none;
+    -webkit-background-clip: unset;
+  }
+
+  .thumb-d h1 .line2 {
+    display: block;
+    -webkit-text-fill-color: rgba(255,255,255,0.95);
+    background: none;
+    -webkit-background-clip: unset;
+    font-size: 92px;
+    letter-spacing: -0.035em;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+  }
+
+  .thumb-d .tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .thumb-d .tag {
+    padding: 5px 13px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(200,190,255,0.6);
+    letter-spacing: -0.01em;
+  }
+
+  .thumb-d .accent-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 10%, rgba(168,85,247,0.5) 30%, rgba(99,102,241,0.5) 70%, transparent 90%);
+    z-index: 4;
+  }
+</style>
+</head>
+<body>
+
+<h2 class="label">Version A — 그라데이션 + 업종 태그</h2>
+<div class="thumb thumb-a">
+  <div class="accent-line"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag">피부과</span>
+      <span class="tag">성형외과</span>
+      <span class="tag">치과</span>
+      <span class="tag">한의원</span>
+    </div>
+    <h1>
+      <span class="hl">병원</span><span class="dot"> · </span><span class="hl">전문직</span><br>
+      <span class="line2">홈페이지 제작</span>
+    </h1>
+  </div>
+</div>
+
+<h2 class="label">Version B — 텍스트 온리 초미니멀</h2>
+<div class="thumb thumb-b">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="content">
+    <h1>
+      <span class="hl">병원</span><span class="dot"> · </span><span class="hl">전문직</span><br>
+      <span class="line2">홈페이지 제작</span>
+    </h1>
+    <div class="tags">
+      <span class="tag">피부과</span>
+      <span class="tag">성형외과</span>
+      <span class="tag">치과</span>
+      <span class="tag">한의원</span>
+      <span class="tag">변호사</span>
+    </div>
+  </div>
+  <div class="accent-bar"></div>
+</div>
+
+<h2 class="label">Version C — 사진 배경 + 업종 태그</h2>
+<div class="thumb thumb-c">
+  <div class="bg-img"></div>
+  <div class="overlay"></div>
+  <div class="accent-line"></div>
+  <div class="content">
+    <div class="tags">
+      <span class="tag">피부과</span>
+      <span class="tag">성형외과</span>
+      <span class="tag">치과</span>
+      <span class="tag">한의원</span>
+    </div>
+    <h1>
+      <span class="hl">병원</span><span class="dot"> · </span><span class="hl">전문직</span><br>
+      <span class="line2">홈페이지 제작</span>
+    </h1>
+  </div>
+</div>
+
+<h2 class="label">Version D — 사진 배경 + 텍스트 온리</h2>
+<div class="thumb thumb-d">
+  <div class="bg-img"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>
+      <span class="hl">병원</span><span class="dot"> · </span><span class="hl">전문직</span><br>
+      <span class="line2">홈페이지 제작</span>
+    </h1>
+    <div class="tags">
+      <span class="tag">피부과</span>
+      <span class="tag">성형외과</span>
+      <span class="tag">치과</span>
+      <span class="tag">한의원</span>
+      <span class="tag">변호사</span>
+    </div>
+  </div>
+  <div class="accent-bar"></div>
+</div>
+
+</body>
+</html>
